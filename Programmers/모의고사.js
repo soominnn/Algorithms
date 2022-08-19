@@ -3,10 +3,9 @@ const repet = (answers, arr, result) => {
   let cnt = 0;
   for (let i = 0; i < answers.length; i++) {
     if (answers[i] === arr[index]) cnt += 1;
-    if (index === 4) index = 0;
     index++;
+    if (index === arr.length) index = 0;
   }
-
   result.push(cnt);
   return result;
 };
@@ -18,9 +17,11 @@ function solution(answers) {
   let result = [];
   let answer = [];
 
-  result = repet(answers, one, result);
-  result = repet(answers, two, result);
-  result = repet(answers, three, result);
+  result = repet(
+    answers,
+    three,
+    repet(answers, two, repet(answers, one, result))
+  );
 
   let maxValue = Math.max(...result);
   for (let i = 0; i < result.length; i++)
