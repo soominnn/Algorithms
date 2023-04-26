@@ -1,3 +1,4 @@
+# 메모리 사용 더 줄이는 방법 31256KB
 import sys
 n = int(sys.stdin.readline())
 
@@ -14,10 +15,10 @@ else:
         now = (temp + now) % 15746
     print(now)
 
+# 배열 이용 69788KB
 # dp = [0] * 1000001
 # dp[1] = 1
 # dp[2] = 2
 # for i in range(3, n + 1):
 #     dp[i] = (dp[i - 1] + dp[i - 2]) % 15746
 # print(dp[n])
-# print(now)
