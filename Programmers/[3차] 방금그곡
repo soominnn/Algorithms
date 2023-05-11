@@ -1,0 +1,25 @@
+import math
+
+def solution(m, musicinfos):
+    answer = []
+    m = m.replace("C#", "c").replace("D#", "d").replace("F#", "f").replace("G#", 'g').replace("A#", "a")
+    
+    for musicinfo in musicinfos:
+        start, end, title, code = musicinfo.split(",")
+        
+        hour, minute = map(int, start.split(":"))
+        start = hour * 60 + minute
+        
+        hour, minute = map(int, end.split(":"))
+        end = hour * 60 + minute
+        duration = end - start
+        
+        code = code.replace("C#", 'c').replace("D#", 'd').replace("F#", "f").replace("G#", "g").replace("A#", "a")
+        code *= math.ceil(duration / len(code))
+        code = code[:duration]
+        
+        if m in code:
+            answer.append([duration, title])
+    
+    
+    return sorted(answer, key = lambda x : -x[0])[0][1] if answer else "(None)"
