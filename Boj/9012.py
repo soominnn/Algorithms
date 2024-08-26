@@ -8,6 +8,6 @@ for _ in range(n):
         else:
             stack.append(a)
     if stack:
-        print("no")
+        print("NO")
     else:
-        print("yes")
+        print("YES")
