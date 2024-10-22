@@ -3,7 +3,6 @@ s = []
 
 
 def dfs(start):
-    print(s)
     if len(s) == m:
         print(" ".join(map(str, s)))
         return
